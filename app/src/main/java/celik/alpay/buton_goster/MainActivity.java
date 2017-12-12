@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import java.util.Random;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -20,7 +21,12 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 // Butona tıkladığımızda yazıyı bu bölümde değiştiriyoruz.
-                String bilgi = "Uçak saniyede 50m gider";
+                String bilgi = "";
+                // rastgele yazı oluşturacağız
+                Random rastgeleSayiOlusturucu = new Random(); // rastgele satı oluşturuyoruz.
+                int rastgeleSayi = rastgeleSayiOlusturucu.nextInt(3);
+                bilgi = rastgeleSayi + "";
+                // burada label güncelleniyor.
                 bilgiLabel.setText(bilgi);
             }
         };
