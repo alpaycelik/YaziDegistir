@@ -1,13 +1,18 @@
 package celik.alpay.buton_goster;
 
+import android.graphics.Color;
+import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
-import java.util.Random;
+
 
 public class MainActivity extends AppCompatActivity {
+
+    private BilgiDeposu mBilgiDeposu = new BilgiDeposu();
+    private Renkler mRenkler = new Renkler();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -15,19 +20,18 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         final TextView bilgiLabel = (TextView)findViewById(R.id.bilgiTextView);
-        Button bilgiGosterButton = (Button)findViewById(R.id.bilgiButton);
-
+        final Button bilgiGosterButton = (Button)findViewById(R.id.bilgiButton);
+        final ConstraintLayout constraintLayout = (ConstraintLayout) findViewById(R.id.constraintLayout);
         View.OnClickListener listener = new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                // Butona tıkladığımızda yazıyı bu bölümde değiştiriyoruz.
-                String bilgi = "";
-                // rastgele yazı oluşturacağız
-                Random rastgeleSayiOlusturucu = new Random(); // rastgele satı oluşturuyoruz.
-                int rastgeleSayi = rastgeleSayiOlusturucu.nextInt(3);
-                bilgi = rastgeleSayi + "";
+                String bilgi = mBilgiDeposu.getBilgi();
                 // burada label güncelleniyor.
                 bilgiLabel.setText(bilgi);
+                int renk = mRenkler.getRenk();
+                constraintLayout.setBackgroundColor(renk);
+                bilgiGosterButton.setTextColor(renk);
+                // mBilgiDeposu.mBilgiler[0] = "Siberakademi.net bir harika";
             }
         };
 
