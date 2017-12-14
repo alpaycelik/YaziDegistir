@@ -1,12 +1,13 @@
 package celik.alpay.buton_goster;
 
-import android.graphics.Color;
 import android.support.constraint.ConstraintLayout;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -36,5 +37,9 @@ public class MainActivity extends AppCompatActivity {
         };
 
         bilgiGosterButton.setOnClickListener(listener);
+
+        Toast.makeText(this, "Güzel bir android uygulaması", Toast.LENGTH_LONG).show();
+
+        Log.d("MainActivity", "Güzel bir android uygulaması");
     }
 }
